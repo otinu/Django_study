@@ -8,7 +8,18 @@
 </head>
 
 <body>
+    {% extends 'base.html' %}
+
+    {% block header %}
+    <h3 style="color: red;">detail.htmlです</h3>
+    {% endblock %}
+
+    {% block content %}
+    <p>detailのコンテンツ</p>
     {{ object.title }}
+    {{ object.memo }}
+    {% endblock content %}
+
 </body>
 
 </html>

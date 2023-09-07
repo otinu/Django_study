@@ -8,17 +8,15 @@
 </head>
 
 <body>
+    <h3>base.htmlです</h3>
+
     {% block header %}
-    <h3>list.htmlです</h3>
+    <!-- 各HTMLのheaderコンテンツの中身に置き換わる -->
     {% endblock header %}
 
     {% block content %}
-    {% for post in object_list %}
-    {{ post.title }}
-    {{ post.memo }}
-    {% endfor %}
+    <!-- 各HTMLのblockコンテンツの中身に置き換わる -->
     {% endblock content %}
-
 </body>
 
 </html>
