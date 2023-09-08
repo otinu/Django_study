@@ -11,6 +11,8 @@
 {% block content %}
 
 <body>
+    <p style="color: red;">{{ error_message }}</p>
+
     <h2>ようこそ、ログインしてください。</h2>
     <form method="POST">{% csrf_token %}
         <label for="email">email</label>
@@ -19,7 +21,7 @@
         <label for="password">password</label>
         <input type="password" name="password">
 
-        <button type="submit">ログイン</button>
+        <button type="submit">登録</button>
     </form>
 </body>
 {% endblock content %}
