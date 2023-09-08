@@ -16,6 +16,10 @@
     {% for post in object_list %}
     {{ post.title }}
     {{ post.memo }}
+    <!-- 「update」や「delete」はpath()の第三引数からもってくる -->
+    <a href="{% url 'update' post.pk %}">編集</a>
+    <a href="{% url 'delete' post.pk %}">削除</a>
+    <a href="{% url 'detail' post.pk %}">詳細</a>
     {% endfor %}
     {% endblock content %}
 
