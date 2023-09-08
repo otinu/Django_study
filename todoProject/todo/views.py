@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.views.generic import ListView, DetailView, CreateView
+from django.views.generic import ListView, DetailView, CreateView, DeleteView
 from .models import TodoModel
 
 from django.urls import reverse_lazy
@@ -17,3 +17,8 @@ class TodoCreate(CreateView):
     model = TodoModel
     fields = ('title', 'memo', 'priority', 'duedate') # form.〇〇でどのフィールドを使うのか指定する
     success_url = reverse_lazy('list') # urls.pyの別名(path()の第三引数)を指定
+
+class TodoDelete(DeleteView):
+    template_name = 'delete.html'
+    model = TodoModel
+    success_url = reverse_lazy('list')
