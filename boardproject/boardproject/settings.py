@@ -119,3 +119,17 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+
+# ここは本番環境で必要になる。記述しないとエラー発生
+#  ⇒開発環境では複数アプリに点在する静的ファイルを、本番環境では一ヶ所(ここではstaticfiles)にまとめてくれる
+STATIC_ROOT = BASE_DIR / 'staticfiles'
+
+# 静的ファイルを各アプリごとに管理できるよう設定ができる
+STATICFILES_DIRS = [str(BASE_DIR / 'static')]
+# STATICFILES_DIRS = [BASE_DIR / 'payapp/static', BASE_DIR / 'boardapp/static']
+
+# settings.pyとurls.pyの設定をするだけで、Django内部に画像が保存されるようになる
+#  ⇒開発環境はこれでOK。本番なら画像などはフロントサーバ側に保存させるべき
+MEDIA_ROOT = BASE_DIR / 'media'
+
+MEDIA_URL = 'media_path/'
