@@ -133,3 +133,7 @@ STATICFILES_DIRS = [str(BASE_DIR / 'static')]
 MEDIA_ROOT = BASE_DIR / 'media'
 
 MEDIA_URL = 'media_path/'
+
+# viewsの「@login_required」デコレータに対応させるため追加
+#  ⇒「login」はアプリ内のurls.pyのpath() 第三引数と連動
+LOGIN_URL = 'login'

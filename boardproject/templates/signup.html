@@ -29,6 +29,10 @@
 
         <button type="submit">登録</button>
     </form>
+
+    {% if user.is_authenticated %}
+    <h3>ログインユーザーのみ公開の隠しメッセージ</h3>
+    {% endif %}
 </body>
 {% endblock content %}
 
