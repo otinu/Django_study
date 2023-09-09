@@ -1,6 +1,8 @@
 from django.shortcuts import render
 from django.contrib.auth.models import User
+from django.contrib.auth import authenticate, login
 from django.db import IntegrityError
+
 
 def signupfunc(request):
     if request.method == "POST":
@@ -25,3 +27,15 @@ def signupfunc(request):
     print(my_object.email)
     '''
     return render(request, 'signup.html', {'some': 100})
+
+def loginfunc(request):
+    if request.method == "POST":
+        username = request.POST['username']
+        password = request.POST['password']
+        user = authenticate(request, username=username, password=password)
+        if user is not None:
+            login(request, user)
+            return render(request, 'login.html', {'login_message': 'logged in'})
+        else:
+            return render(request, 'login.html', {'login_message': 'not logged in'})
+    return render(request, 'login.html', {'login_message': 'get method'})

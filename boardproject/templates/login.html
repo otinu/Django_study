@@ -11,9 +11,9 @@
 {% block content %}
 
 <body>
-    <p style="color: red;">{{ error_message }}</p>
+    <p style="color: red;">{{ login_message }}</p>
 
-    <h2>登録画面</h2>
+    <h2>ログイン画面</h2>
     <form method="POST">{% csrf_token %}
         <label for="email">email</label>
         <input type="text" name="username">
@@ -21,7 +21,7 @@
         <label for="password">password</label>
         <input type="password" name="password">
 
-        <button type="submit">登録</button>
+        <button type="submit">ログイン</button>
     </form>
 </body>
 {% endblock content %}
