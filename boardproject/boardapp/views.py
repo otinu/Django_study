@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login
 from django.db import IntegrityError
+from .models import BoardModel
 
 
 def signupfunc(request):
@@ -39,3 +40,7 @@ def loginfunc(request):
         else:
             return render(request, 'login.html', {'login_message': 'not logged in'})
     return render(request, 'login.html', {'login_message': 'get method'})
+
+def listfunc(request):
+    object_list = BoardModel.objects.all()
+    return render(request, 'list.html', {'object_list':object_list})
